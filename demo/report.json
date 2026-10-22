@@ -1,0 +1,174 @@
+{
+  "filename": "problems.srt",
+  "cues": [
+    {
+      "index": 1,
+      "label": "1",
+      "line": 1,
+      "start_ms": 1000,
+      "end_ms": 1400,
+      "text": "这条字幕显示时间太短，需要给观众更多阅读时间。"
+    },
+    {
+      "index": 2,
+      "label": "3",
+      "line": 5,
+      "start_ms": 1300,
+      "end_ms": 4000,
+      "text": "这是一条故意写得很长很长的示例字幕，用来演示单行文字过长的提示。"
+    },
+    {
+      "index": 3,
+      "label": "4",
+      "line": 9,
+      "start_ms": 3000,
+      "end_ms": 5000,
+      "text": "这里与上一条字幕发生了重叠。"
+    },
+    {
+      "index": 4,
+      "label": "5",
+      "line": 13,
+      "start_ms": 6000,
+      "end_ms": 5000,
+      "text": "结束时间早于开始时间。"
+    },
+    {
+      "index": 5,
+      "label": "6",
+      "line": 17,
+      "start_ms": null,
+      "end_ms": 9000,
+      "text": "开始时间误用了小数点。"
+    },
+    {
+      "index": 6,
+      "label": "7",
+      "line": 21,
+      "start_ms": 10000,
+      "end_ms": 12000,
+      "text": ""
+    },
+    {
+      "index": 7,
+      "label": "8",
+      "line": 24,
+      "start_ms": 8000,
+      "end_ms": 9500,
+      "text": "这条字幕出现了时间倒序。"
+    }
+  ],
+  "issues": [
+    {
+      "code": "high_cps",
+      "severity": "warning",
+      "cue": 1,
+      "line": 2,
+      "message": "阅读速度约 57.5 字/秒，超过 18.0 字/秒的提醒阈值。"
+    },
+    {
+      "code": "short_duration",
+      "severity": "warning",
+      "cue": 1,
+      "line": 2,
+      "message": "显示时长为 400 毫秒，短于 800 毫秒的提醒阈值。"
+    },
+    {
+      "code": "unexpected_index",
+      "severity": "warning",
+      "cue": 2,
+      "line": 5,
+      "message": "字幕序号为 3，按文件顺序应为 2。"
+    },
+    {
+      "code": "overlap",
+      "severity": "error",
+      "cue": 2,
+      "line": 6,
+      "message": "与第 1 条字幕（原文件第 1 行）重叠 100 毫秒。"
+    },
+    {
+      "code": "long_line",
+      "severity": "warning",
+      "cue": 2,
+      "line": 7,
+      "message": "本行有 32 个可见字符，超过每行 24 字的提醒阈值。"
+    },
+    {
+      "code": "unexpected_index",
+      "severity": "warning",
+      "cue": 3,
+      "line": 9,
+      "message": "字幕序号为 4，按文件顺序应为 3。"
+    },
+    {
+      "code": "overlap",
+      "severity": "error",
+      "cue": 3,
+      "line": 10,
+      "message": "与第 2 条字幕（原文件第 5 行）重叠 1000 毫秒。"
+    },
+    {
+      "code": "unexpected_index",
+      "severity": "warning",
+      "cue": 4,
+      "line": 13,
+      "message": "字幕序号为 5，按文件顺序应为 4。"
+    },
+    {
+      "code": "reversed_time",
+      "severity": "error",
+      "cue": 4,
+      "line": 14,
+      "message": "结束时间必须晚于开始时间；当前时长为 -1000 毫秒。"
+    },
+    {
+      "code": "unexpected_index",
+      "severity": "warning",
+      "cue": 5,
+      "line": 17,
+      "message": "字幕序号为 6，按文件顺序应为 5。"
+    },
+    {
+      "code": "invalid_timestamp",
+      "severity": "error",
+      "cue": 5,
+      "line": 18,
+      "message": "时间轴无效：00:00:07.000 --> 00:00:09,000。应为 HH:MM:SS,mmm --> HH:MM:SS,mmm，分和秒须在 00–59 内。"
+    },
+    {
+      "code": "unexpected_index",
+      "severity": "warning",
+      "cue": 6,
+      "line": 21,
+      "message": "字幕序号为 7，按文件顺序应为 6。"
+    },
+    {
+      "code": "empty_cue",
+      "severity": "error",
+      "cue": 6,
+      "line": 22,
+      "message": "字幕没有可见文字（空白与 b/i/u/font 格式标签不计为文字）。"
+    },
+    {
+      "code": "unexpected_index",
+      "severity": "warning",
+      "cue": 7,
+      "line": 24,
+      "message": "字幕序号为 8，按文件顺序应为 7。"
+    },
+    {
+      "code": "out_of_order",
+      "severity": "warning",
+      "cue": 7,
+      "line": 25,
+      "message": "开始时间早于前一条可解析开始时间的字幕（第 6 条）；请检查排列顺序。"
+    }
+  ],
+  "summary": {
+    "total_cues": 7,
+    "errors": 5,
+    "warnings": 10,
+    "duration_ms": 11000
+  }
+}
